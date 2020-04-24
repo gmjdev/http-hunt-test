@@ -1,0 +1,153 @@
+Challenge => {
+  "stage" : "1/4",
+  "statement" : "You are Lara Croft's AI. If her AI fails her she perishes before she finishes her quest. Don't fail her or you fail yourself! Your first task is to help her decrypt this message she received.",
+  "instructions" : "You can 'GET' the input from /challenge/input and output should be 'POST' json to /challenge/output. Important note: The time between request 'GET' input and 'POST' requests should not exceed 2 secs.",
+  "sampleInput" : {
+    "input" : {
+      "encryptedMessage" : "F KFRTZX JCUQTWJW TSHJ XFNI, YMFY YMJ JCYWFTWINSFWD NX NS BMFY BJ IT, STY BMT BJ FWJ. LT JCUQTWJ!",
+      "key" : 5
+    }
+  },
+  "sampleOutput" : {
+    "output" : {
+      "message" : "A FAMOUS EXPLORER ONCE SAID, THAT THE EXTRAORDINARY IS IN WHAT WE DO, NOT WHO WE ARE. GO EXPLORE!"
+    }
+  }
+}
+
+{
+    "stage": "2/4",
+    "statement": "Glad to see you made it. Lara is grateful. Hope you have played I SPY before as this just got interesting. You need to help Lara find all the tools she needs in her quest. Find the tool words as they are chopped into letters and distributed in this jumbled up gibberish.",
+    "instructions": "You can 'GET' the input from /challenge/input and output should be 'POST' json to /challenge/output. Important note: The time between request 'GET' input and 'POST' requests should not exceed 2 secs.",
+    "sampleInput": {
+        "input": {knife guns rope
+            "hiddenTools": "opekandifehgujnsr",
+            "tools": [
+                "knife",
+                "guns",
+                "rope"
+            ]
+        }
+    },
+    "sampleOutput": {
+        "output": {
+            "toolsFound": [
+                "knife",
+                "guns"
+            ]
+        }
+    }
+}
+
+Challenge 2
+{
+   "hiddenTools":"fasfaladsfadsaafdsrfadsfesferwiterwrgstfadsgifghdugurynrgrdfovdfpgsge",
+   "tools":[
+      "flare",
+      "firstaid",
+      "crowbar",
+      "gun",
+      "rope"
+   ]
+}
+
+
+Challenge 3
+{
+    "stage": "3/4",
+    "statement": "Lara is now able to make use of the tools you found for her! The next step is to find which tools are the most useful to her. Have a look at the data and let Lara know which tool she has been using the most",
+    "instructions": "You can 'GET' the input from /challenge/input and output should be 'POST' json to /challenge/output. Important note: The time between request 'GET' input and 'POST' requests should not exceed 2 secs.",
+    "sampleInput": {
+        "input": {
+            "toolUsage": [
+                {
+                    "name": "knife",
+                    "useStartTime": "2017-01-30 10:00:00",
+                    "useEndTime": "2017-01-30 10:10:00"
+                },
+                {
+                    "name": "guns",
+                    "useStartTime": "2017-01-30 10:15:00",
+                    "useEndTime": "2017-01-30 10:20:00"
+                },
+                {
+                    "name": "guns",
+                    "useStartTime": "2017-01-30 11:00:00",
+                    "useEndTime": "2017-01-30 11:10:00"
+                },
+                {
+                    "name": "knife",
+                    "useStartTime": "2017-01-30 11:10:00",
+                    "useEndTime": "2017-01-30 11:20:00"
+                },
+                {
+                    "name": "rope",
+                    "useStartTime": "2017-01-30 13:00:00",
+                    "useEndTime": "2017-01-30 14:00:00"
+                }
+            ]
+        }
+    },
+    "sampleOutput": {
+        "output": {
+            "toolsSortedOnUsage": [
+                {
+                    "name": "rope",
+                    "timeUsedInMinutes": 60
+                },
+                {
+                    "name": "knife",
+                    "timeUsedInMinutes": 20
+                },
+                {
+                    "name": "guns",
+                    "timeUsedInMinutes": 15
+                }
+            ]
+        }
+    }
+}
+
+
+Challenge 4
+{
+    "stage": "4/4",
+    "statement": "Thanks to you Lara now knows which tools are more valuable to her. But the next problem she is facing is that the tools are weighing her down. She has decided to limit the weight she is going to carry. Based on the total weight, the weight of each tool and value of the tool, you need to help her choose which tool to carry. If you are able to help her in this final step, it might be a small step for you as an AI but it will be a huge leap for mankind!",
+    "instructions": "You can 'GET' the input from /challenge/input and output should be 'POST' json to /challenge/output. Important note: The time between request 'GET' input and 'POST' requests should not exceed 2 secs.",
+    "sampleInput": {
+        "input": {
+            "tools": [
+                {
+                    "name": "knife",
+                    "weight": 1,
+                    "value": 80
+                },
+                {
+                    "name": "guns",
+                    "weight": 5,
+                    "value": 90
+                },
+                {
+                    "name": "rope",
+                    "weight": 10,
+                    "value": 60
+                },
+                {
+                    "name": "water",
+                    "weight": 8,
+                    "value": 40
+                }
+            ],
+            "maximumWeight": 15
+        }
+    },
+    "sampleOutput": {
+        "output": {
+            "toolsToTakeSorted": [
+                "guns",
+                "knife",
+                "water"
+            ]
+        }
+    }
+}
